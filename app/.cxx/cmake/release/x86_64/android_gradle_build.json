@@ -1,0 +1,46 @@
+{
+  "stringTable": {
+    "0": "G:/TestDemo/openssl_test/app/.cxx/cmake/release/x86_64",
+    "1": "--target=x86_64-none-linux-android21 --gcc-toolchain=D:/Program Files/Android/android-ndk-r21/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/Program Files/Android/android-ndk-r21/toolchains/llvm/prebuilt/windows-x86_64/sysroot -Dnative_lib_EXPORTS -I../../../../src/main/cpp -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -O2 -DNDEBUG -fPIC"
+  },
+  "buildFiles": [
+    "D:\\Program Files\\Android\\android-ndk-r21\\build\\cmake\\platforms.cmake",
+    "D:\\Program Files\\Android\\android-ndk-r21\\build\\cmake\\android.toolchain.cmake",
+    "G:\\TestDemo\\openssl_test\\app\\CMakeLists.txt"
+  ],
+  "cleanCommands": [
+    "D:\\Program Files\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"G:\\TestDemo\\openssl_test\\app\\.cxx\\cmake\\release\\x86_64\" clean"
+  ],
+  "buildTargetsCommand": "D:\\Program Files\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe  -C \"G:\\TestDemo\\openssl_test\\app\\.cxx\\cmake\\release\\x86_64\" {LIST_OF_TARGETS_TO_BUILD}",
+  "libraries": {
+    "native-lib-Release-x86_64": {
+      "buildCommand": "D:\\Program Files\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"G:\\TestDemo\\openssl_test\\app\\.cxx\\cmake\\release\\x86_64\" native-lib",
+      "buildType": "release",
+      "toolchain": "4110304425",
+      "abi": "x86_64",
+      "artifactName": "native-lib",
+      "files": [
+        {
+          "src": "G:\\TestDemo\\openssl_test\\app\\src\\main\\cpp\\native-lib.cpp",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        }
+      ],
+      "headers": [],
+      "output": "G:\\TestDemo\\openssl_test\\app\\build\\intermediates\\cmake\\release\\obj\\x86_64\\libnative-lib.so",
+      "runtimeFiles": [
+        "G:\\TestDemo\\openssl_test\\app\\src\\main\\cpp\\libs\\x86_64\\libssl.a",
+        "G:\\TestDemo\\openssl_test\\app\\src\\main\\cpp\\libs\\x86_64\\libcrypto.a"
+      ]
+    }
+  },
+  "toolchains": {
+    "4110304425": {
+      "cppCompilerExecutable": "D:\\PROGRA~2\\Android\\ANDROI~3\\TOOLCH~1\\llvm\\prebuilt\\WINDOW~1\\bin\\CLANG_~1.EXE"
+    }
+  },
+  "cFileExtensions": [],
+  "cppFileExtensions": [
+    "cpp"
+  ]
+}
