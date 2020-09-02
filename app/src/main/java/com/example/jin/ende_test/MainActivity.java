@@ -22,17 +22,24 @@ public class MainActivity extends AppCompatActivity {
 
         // Example of a call to a native method
         TextView tv = (TextView) findViewById(R.id.sample_text);
-        String str = "first blood";
+        String str = "zi lao hu";
         String s;
         try {
-            byte[] bytes = stringFromJNI(str.getBytes());
-            s = HexTest.byteArrToHex(bytes);
-            Log.e("chris jni", s);
-            tv.setText(s);
             MessageDigest md5Digest = MessageDigest.getInstance("MD5");
             byte[] btArr = md5Digest.digest(str.getBytes());
             s = HexTest.byteArrToHex(btArr);
-            Log.e("chris java", s);
+            tv.setText(s);
+            Log.e("chris md5 java", s);
+
+
+            //jni md5
+            byte[] bytes = getJniMd5(str.getBytes());
+            s = HexTest.byteArrToHex(bytes);
+            Log.e("chris md5 jni", s);
+
+
+            //jni base64
+            Log.e("chris base64 jni",   getJniBase64(str));
 
 
         } catch (Exception e) {
@@ -47,5 +54,6 @@ public class MainActivity extends AppCompatActivity {
      * A native method that is implemented by the 'native-lib' native library,
      * which is packaged with this application.
      */
-    native byte[] stringFromJNI(byte[] clearText);
+    native byte[] getJniMd5(byte[] clearText);
+    native String getJniBase64(String clearText);
 }
