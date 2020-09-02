@@ -1,1 +1,0 @@
-# openss_test
