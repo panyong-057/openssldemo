@@ -4,10 +4,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
-
 import java.security.MessageDigest;
-import java.util.Arrays;
-
+//import org.apache.commons.codec.Encoder;
+//import org.bouncycastle.util.encoders.Base64Encoder;
 public class MainActivity extends AppCompatActivity {
 
     // Used to load the 'native-lib' library on application startup.
@@ -36,10 +35,16 @@ public class MainActivity extends AppCompatActivity {
             byte[] bytes = getJniMd5(str.getBytes());
             s = HexTest.byteArrToHex(bytes);
             Log.e("chris md5 jni", s);
+          //  byte[] encodeBytes = org.apache.commons.codec.binary.Base64.encodeBase64(str.getBytes());
+            //Base64.toBase64String(str.getBytes());
 
 
-            //jni base64
-            Log.e("chris base64 jni",   getJniBase64(str));
+
+
+            //Log.e("chris base64 java",  new String(encodeBytes));
+
+            String base64Encode = getJniBase64(str);
+            Log.e("chris base64 jni",  base64Encode);
 
 
         } catch (Exception e) {
@@ -48,6 +53,8 @@ public class MainActivity extends AppCompatActivity {
 
         //System.arraycopy();
         //Arrays.CopyOf();
+
+        finish();
     }
 
     /**
@@ -56,4 +63,6 @@ public class MainActivity extends AppCompatActivity {
      */
     native byte[] getJniMd5(byte[] clearText);
     native String getJniBase64(String clearText);
+    native String getJniRSA(String clearText);
+    native String getJniAES(String clearText);
 }
