@@ -4,12 +4,15 @@
 #include "/openssl/md5.h"
 #include "/openssl/aes.h"
 #include <android/log.h>
-#include <openssl/md5.h>
+#include "/openssl/bio.h"
+#include "/openssl/pem.h"
+#include "/openssl/rsa.h"
 #define LOGE(...) __android_log_print(ANDROID_LOG_ERROR,"JNI",__VA_ARGS__)
-using namespace std;
 
 jbyteArray getMd5Array(JNIEnv *env, const jbyteArray *_jbyte);
 //char *  test_base64(string msg);
+void testRSA();
+
 extern "C" JNIEXPORT jbyteArray JNICALL
 Java_com_example_jin_ende_1test_MainActivity_getJniMd5(
         JNIEnv *env,
@@ -30,11 +33,25 @@ Java_com_example_jin_ende_1test_MainActivity_getJniBase64(JNIEnv *env, jobject t
    // const char *  tempStr = env->GetStringUTFChars(clear_text, 0);
     // char * result =test_base64(tempStr);
     char * result="1111";
+
+    testRSA();
     return env->NewStringUTF(result);
 }
 
+void testRSA() {
 
 
+    //5.对内容进行加密
+
+    int result=   RSA_private_decrypt(256, (unsigned char*)str, (unsigned char*)p_de, p_rsa, RSA_PKCS1_PADDING);
+
+    if(result < 0){
+
+    }
+
+
+
+}
 
 
 jbyteArray getMd5Array(JNIEnv *env, const jbyteArray *_jbyte) {
@@ -80,3 +97,6 @@ jbyteArray getMd5Array(JNIEnv *env, const jbyteArray *_jbyte) {
     //LOGE("chris base64 decode:\t%s", decode_result);
    // return encode_result;
 //}
+
+
+
