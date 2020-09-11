@@ -8,13 +8,15 @@
 #include "include/openssl/ec.h"
 #include "include/openssl/err.h"
 #include <android/log.h>
+#include <include/openssl/obj_mac.h>
 #include "/include/openssl/bio.h"
 #include "/include/openssl/pem.h"
 #include "/include/openssl/rsa.h"
 #include "/include/openssl/aes.h"
-#include <openssl/pem.h>
-#include <openssl/ossl_typ.h>
-#include <openssl/bio.h>
+#include "SM3.h"
+#include "/include/openssl/pem.h"
+#include "/include/openssl/ossl_typ.h"
+#include "/include/openssl/bio.h"
 
 #if defined(OPENSSL_VERSION_NUMBER) \
  && OPENSSL_VERSION_NUMBER < 0x10101001L
@@ -526,6 +528,12 @@ void getsm4() {
 
 
 void getsm3() {
+
+
+    SM3 *sm3 =new SM3;
+
+
+
 
 
     const unsigned char input_str[] = {'a', 'b', 'c', 0};
