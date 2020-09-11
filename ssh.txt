@@ -6,4 +6,4 @@ cmd 登录远程服务器
 3、登录
 ssh [-p port] [user@]hostname
 
-ssh -p 6002 irving.zhuang@172.xx.xx.xx(默认端口号是22)
+ssh -p 6002 chris.pan@172.xx.xx.xx(默认端口号是22)
