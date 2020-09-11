@@ -1,0 +1,9 @@
+
+cmd 登录远程服务器
+
+1 、安装软件 http://slproweb.com/products/Win32OpenSSL.html
+2、配置bin路径
+3、登录
+ssh [-p port] [user@]hostname
+
+ssh -p 6002 irving.zhuang@172.xx.xx.xx(默认端口号是22)
