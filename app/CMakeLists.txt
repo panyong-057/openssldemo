@@ -4,7 +4,6 @@ cmake_minimum_required(VERSION 3.4.1)
 
 # 创建一个变量 source_file 它的值就是src/main/cpp/ 所有的.cpp文件
 file(GLOB source_file src/main/cpp/*.cpp)
-file(GLOB source_file_h src/main/cpp/*.h)
 #add_library(
 #        native-lib
 #        SHARED
@@ -14,7 +13,6 @@ add_library(
         native-lib
         SHARED
         ${source_file}
-        ${source_file_h}
         ) #导入所有的cpp文件
 
 #表示把src/main/cpp/include.openssl 加入到include目录，这样在代码中使用：#include <...>就能访问到头文件
