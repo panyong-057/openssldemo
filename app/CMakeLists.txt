@@ -4,6 +4,9 @@ cmake_minimum_required(VERSION 3.4.1)
 
 # 创建一个变量 source_file 它的值就是src/main/cpp/ 所有的.cpp文件
 file(GLOB source_file src/main/cpp/*.cpp)
+file(GLOB source_file_sm src/main/cpp/sm/*.cpp)
+file(GLOB source_file_encrypt src/main/cpp/encrypt/*.cpp)
+
 #add_library(
 #        native-lib
 #        SHARED
@@ -13,6 +16,8 @@ add_library(
         native-lib
         SHARED
         ${source_file}
+        ${source_file_sm}
+        ${source_file_encrypt}
         ) #导入所有的cpp文件
 
 #表示把src/main/cpp/include.openssl 加入到include目录，这样在代码中使用：#include <...>就能访问到头文件
@@ -49,6 +54,5 @@ target_link_libraries(
         ssl
         crypto
         log  z android
-
         )
 
