@@ -10,10 +10,20 @@ chcp 65001
 @rem     命令1 && 命令2 && 命令3....(仅当前面命令成功时,才执行后面)
 @rem     命令1 || 命令2 || 命令3.... (仅当前面命令失败时.才执行后面)
 
+
+
+
+echo 命令参数为: %1 %2 %3
+
+set tips_str=install
+set splashactivity=com.fangpao.xzly/.activity.SplashActivity
+
 set str1=1.DevDebug
 set str2=2.DevRelease
 set str3=3.ProdDebug
 set str4=4.ProdRelease
+
+
 
 
 echo %tips%
@@ -22,10 +32,24 @@ echo %str2%
 echo %str3%
 echo %str4%
 @rem set tips= 请选择你的环境:
-set /p a=请选择你的环境:
-
-set tips_str=install
-set splashactivity=
+ if "%1"=="" (
+ set /p a=请选择你的环境:
+ ) else if  "%1" == "dev" (
+    echo "%2"| findstr "r" >nul && (
+    set  a=2
+    ) || (
+    set a=1
+    )
+ ) else if  "%1" == "prod" (
+    echo "%2"| findstr "r" >nul && (
+    set  a=4
+    ) || (
+     set  a=3
+    )
+ ) else (
+  set  a=%1
+ )
+ echo 选项为:%a%
 
 @rem choice /c 1234 /n /m "Please choice:"
 
@@ -57,8 +81,6 @@ call :execute %str4%
     SET temp_str=%1
     echo The current environment: %temp_str%
     gradlew %tips_str%%temp_str:~2% && adb shell am start -n %splashactivity% & goto:move
-
-
 
 :move
 
